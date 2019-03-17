@@ -8,9 +8,12 @@ public class HomeWork3 {
         System.out.println("different words in file: " + diffWords(fileName));
         System.out.println("sorted words : " + sortWords(fileName));
         wordsCount(fileName);
+        System.out.println("reversed words : ");
         reverseString(fileName);
-        numberString(fileName, 1,2,7);
+        System.out.println("iterator words : ");
         descendingIterators(fileName);
+        System.out.println("number of words : ");
+        numberString(fileName, 2,1,7);
 
     }
 
