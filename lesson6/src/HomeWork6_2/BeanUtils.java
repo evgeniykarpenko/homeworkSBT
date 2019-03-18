@@ -1,5 +1,9 @@
 package HomeWork6_2;
 
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 public class BeanUtils {
     /**
      * Scans object "from" for all getters. If object "to"
@@ -18,6 +22,31 @@ public class BeanUtils {
      * @param from Object which properties will be used to get values.
      */
     public static void assign(Object to, Object from) {
-        
+        Class myClassTo = to.getClass();
+        Class myClassFrom = from.getClass();
+
+        Method[] methodsFrom = myClassFrom.getMethods();
+        Method[] methodsTo = myClassTo.getMethods();
+        for (Method mFrom : methodsFrom) {
+            if (mFrom.getName().startsWith("get")) {
+                System.out.println("Found getter: " + mFrom);
+                String newSetterName = mFrom.getName().replace("get", "set");
+                for (Method mTo : methodsTo) {
+                    if ((mTo.getName().equals(newSetterName) && (mFrom.getReturnType().isAssignableFrom(mTo.getParameterTypes()[0])))) {
+                        System.out.println("Setter Found: " + mTo);
+
+                        try {
+                            mTo.invoke(to, mFrom.invoke(from));
+                        } catch (IllegalAccessException e) {
+                            // e.printStackTrace();
+                            System.out.println("Error 1 !");
+                        } catch (InvocationTargetException e) {
+                            // e.printStackTrace();
+                            System.out.println("Error 2 !");
+                        }
+                    }
+                }
+            }
+        }
     }
 }
