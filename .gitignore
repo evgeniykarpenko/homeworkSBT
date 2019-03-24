@@ -22,3 +22,5 @@ JavaRushTasks.iml
 8.Games
 out.log
 /out/*
+
+/target/*
