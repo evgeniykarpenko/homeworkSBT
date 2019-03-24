@@ -5,6 +5,8 @@ import org.junit.Test;
 import java.util.Iterator;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class ArrayIteratorTest {
     private static final int SIZE = 10;
@@ -59,5 +61,13 @@ public class ArrayIteratorTest {
     public void iteratorExcept() {
         Iterator<Integer> iterator = arrayIterator.iterator();
         iterator.remove();
+    }
+
+    @Test
+    public void testMock(){
+        ArrayIterator<Integer> i = mock(ArrayIterator.class);
+        when(i.get(0)).thenReturn(0);
+        Integer result = i.get(0);
+        assertEquals((Integer)0,result);
     }
 }
