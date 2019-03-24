@@ -17,15 +17,16 @@ public class Main {
 
             Plugin pl1 = pluginManager.load("Plugin1", "ru.plugin.Plugin1");
             pl1.doUsefull();
-
+            System.out.println(pl1.getClass().getClassLoader().toString());
             Plugin pl2 = pluginManager.load("Plugin2", "ru.plugin.Plugin2");
             pl2.doUsefull();
-
+            System.out.println(pl2.getClass().getClassLoader().toString());
             Plugin pl3_type1 = pluginManager.load("SimilarNamesPlugin", "ru.plugin.Corp1.Plugin3");
             pl3_type1.doUsefull();
-
+            System.out.println(pl3_type1.getClass().getClassLoader().toString());
             Plugin pl3_type2 = pluginManager.load("SimilarNamesPlugin", "ru.plugin.Corp2.Plugin3");
             pl3_type2.doUsefull();
+            System.out.println(pl3_type2.getClass().getClassLoader().toString());
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
