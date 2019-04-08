@@ -1,13 +1,15 @@
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Iterator;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-
+@RunWith(MockitoJUnitRunner.class)
 public class ArrayIteratorTest {
     private static final int SIZE = 10;
     ArrayIterator<Integer> arrayIterator = new ArrayIterator<>(SIZE);
