@@ -1,6 +1,6 @@
 ### JIT
-    Запуск с опцией: -XX:+PrintCompilation
-    149    1       3       java.util.concurrent.ConcurrentHashMap::tabAt (22 bytes)
+    ## Запуск с опцией: -XX:+PrintCompilation
+        149    1       3       java.util.concurrent.ConcurrentHashMap::tabAt (22 bytes)
         150    2       3       jdk.internal.misc.Unsafe::getObjectAcquire (7 bytes)
         153    3       3       java.lang.String::isLatin1 (19 bytes)
         162    4       3       java.lang.StringLatin1::hashCode (42 bytes)
@@ -266,7 +266,8 @@
         673  227 %     4       Main::main @ 10 (53 bytes)
         708  225 %     3       Main::main @ 10 (53 bytes)   made not entrant
        1561  227 %     4       Main::main @ 10 (53 bytes)   made not entrant
-    Запуск с опциями: -XX:+PrintCompilation -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining
+       
+    ## Запуск с опциями: -XX:+PrintCompilation -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining
     116    1       3       java.util.concurrent.ConcurrentHashMap::tabAt (22 bytes)
                                   @ 15   jdk.internal.misc.Unsafe::getObjectAcquire (7 bytes)
                                     @ 3   jdk.internal.misc.Unsafe::getObjectVolatile (0 bytes)   intrinsic
@@ -1215,4 +1216,16 @@
                                   @ 40   java.util.HashMap::put (13 bytes)   already compiled into a big method
        1569  226 %     4       Main::main @ 10 (53 bytes)   made not entrant
 ### GC
+    * -XX:+UseSerialGC
+    ![screenshot of sample](https://github.com/evgeniykarpenko/homeworkSBT/blob/master/lesson16/IterationLoop/src/main/images/UseSerialGC.jpg)
+    
+    * -XX:+UseParallelGC
+    ![screenshot of sample](https://github.com/evgeniykarpenko/homeworkSBT/blob/master/lesson16/IterationLoop/src/main/images/UseParallelGC.jpg)
+    
+    * -XX:+UseConcMarkSweepGC
+    ![screenshot of sample](https://github.com/evgeniykarpenko/homeworkSBT/blob/master/lesson16/IterationLoop/src/main/images/UseConcMarkSweepGC.jpg)
+    
+    * -XX:+UseG1GC
+    ![screenshot of sample](https://github.com/evgeniykarpenko/homeworkSBT/blob/master/lesson16/IterationLoop/src/main/images/UseG1GC.jpg)
+    
     
